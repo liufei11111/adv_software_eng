@@ -1,0 +1,46 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+#GET     /                              controllers.Application.index()
+
+GET     /                           	controllers.Application.index()
+POST 	/login				controllers.LoginController.login()
+# Authentication
+#POST    /login                         controllers.LoginController.authenticate()
+#GET 	/register			controllers.LoginController.register()
+POST 	/register			controllers.LoginController.register()
+GET     /logout                         controllers.LoginController.logout()
+
+GET 	/dashboard			controllers.Application.dashboard()
+
+#game controller
+POST    /game/create					controllers.GameController.create()
+GET     /game/:gameId/playGame				controllers.GameController.playGame(gameId: Integer)
+GET	/game/:gameId/stock/list			controllers.GameController.stockList(gameId: Integer)
+GET	/game/:gameId/stock/price/:ticker               controllers.GameController.stockPrice(gameId:Integer, ticker:String)
+POST	/game/:gameId/status				controllers.GameController.gameStatus(gameId: Integer)
+POST	/game/:gameId/leave				controllers.GameController.leave(gameId: Integer)
+POST	/game/:gameId/start				controllers.GameController.start(gameId: Integer)
+POST	/game/:gameId/cancel				controllers.GameController.cancel(gameId: Integer)
+POST	/game/:gameId/stock/buy				controllers.GameController.buyStock(gameId: Integer)
+POST	/game/:gameId/stock/sell			controllers.GameController.sellStock(gameId: Integer)
+
+
+
+
+#admin related function...
+GET 	/management						controllers.ManagementController.index()
+GET 	/management/stock				controllers.ManagementController.stockList()
+POST 	/management/stock/add			controllers.ManagementController.addStock()
+POST 	/management/stock/delete		controllers.ManagementController.deleteStock()
+POST 	/management/stock/toggle		controllers.ManagementController.toggleStock()
+POST 	/management/player				controllers.ManagementController.player()
+POST 	/management/player/toggle		controllers.ManagementController.playerToggle()
+POST 	/management/metrics				controllers.ManagementController.generateMetrics()
+
+
+# Map static resources from the /public folder to the /public path
+GET     /assets/*file                       controllers.Assets.at(path="/public", file)

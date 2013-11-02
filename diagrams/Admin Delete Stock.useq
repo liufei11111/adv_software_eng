@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.4" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="models.data.Admin" project="omniwin" file="/omniwin/app/models/data/Admin.java" 
+    binary="false" label="admin" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="39" y="0"/>    
+    <execution id="2">      
+      <position height="466" width="59" x="5" y="108"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="21" width="7" x="31" y="511"/>    
+    </execution>  
+  </object>  
+  <object id="6" language="java" name="controllers.ManagementController" project="omniwin" 
+    file="/omniwin/app/controllers/ManagementController.java" binary="false" label="managementController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="251" y="0"/>    
+    <execution id="4">      
+      <position height="424" width="153" x="68" y="129"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="21" width="7" x="141" y="171"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="7" x="141" y="240"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="7" x="141" y="429"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="managers.UserManager" project="omniwin" 
+    file="/omniwin/app/managers/UserManager.java" binary="false" label="userManager" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="332" y="0"/>    
+    <execution id="8">      
+      <position height="63" width="100" x="225" y="150"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="models.data.User" project="omniwin" file="/omniwin/app/models/data/User.java" 
+    binary="false" label="user" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="379" y="0"/>    
+    <execution id="10">      
+      <position height="63" width="58" x="329" y="219"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="model.forms.StockForm" project="omniwin" 
+    file="/omniwin/app/model/forms/StockForm.java" binary="false" label="stockForm" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="531" y="0"/>    
+    <execution id="12">      
+      <position height="91" width="85" x="501" y="291"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="85" x="501" y="340"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="managers.GameManager" project="omniwin" 
+    file="/omniwin/app/managers/GameManager.java" binary="false" label="gameManager1" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="616" y="0"/>    
+    <execution id="14">      
+      <position height="72" width="106" x="590" y="399"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="deleteStock():play.mvc.Result">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="7" operation="getCurrentLoggedInUser():models.data.User">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="isAdmin():boolean">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="StockForm()">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="deleteStock(java.lang.String,java.lang.String):boolean">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </message>  
+  <message id="20">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="22">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="24" operation="validate():java.lang.String">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="27">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>
+</sequence-diagram>

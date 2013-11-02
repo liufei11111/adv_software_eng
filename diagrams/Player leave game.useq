@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.4" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="models.data.Player" project="omniwin" file="/omniwin/app/models/data/Player.java" 
+    binary="false" label="player" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="63" y="0"/>    
+    <execution id="2">      
+      <position height="364" width="59" x="5" y="110"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="controllers.GameController" project="omniwin" 
+    file="/omniwin/app/controllers/GameController.java" binary="false" label="gameController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="180" y="0"/>    
+    <execution id="4">      
+      <position height="322" width="112" x="68" y="131"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="21" width="7" x="121" y="173"/>    
+    </execution>    
+    <execution id="15">      
+      <position height="21" width="7" x="121" y="254"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="21" width="7" x="121" y="313"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="7" x="121" y="390"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="models.data.Game" project="omniwin" file="/omniwin/app/models/data/Game.java" 
+    binary="false" label="game" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="341" y="0"/>    
+    <execution id="7">      
+      <position height="63" width="58" x="184" y="152"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="63" width="58" x="184" y="292"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="63" width="58" x="184" y="369"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="managers.UserManager" project="omniwin" 
+    file="/omniwin/app/managers/UserManager.java" binary="false" label="userManager" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="386" y="0"/>    
+    <execution id="9">      
+      <position height="68" width="100" x="246" y="228"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="leave(int):play.mvc.Result">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="getCurrentLoggedInUser():models.data.User">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="playerInGame(models.data.User):boolean">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="leaveGame(models.data.User):boolean">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="19">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="20">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="21">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="23">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>
+</sequence-diagram>

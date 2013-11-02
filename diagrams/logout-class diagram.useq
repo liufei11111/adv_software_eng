@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.4" icons="true">  
+  <object id="1" language="java" name="models.data.User" project="omniwin" file="/omniwin/app/models/data/User.java" 
+    binary="false" label="user" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="244" y="0"/>    
+    <execution id="2">      
+      <position height="155" width="58" x="5" y="118"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="controllers.LoginController" project="omniwin" 
+    file="/omniwin/app/controllers/LoginController.java" binary="false" label="loginController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="143" y="0"/>    
+    <execution id="4">      
+      <position height="113" width="110" x="5" y="139"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="21" width="110" x="5" y="181"/>    
+    </execution>  
+  </object>  
+  <object id="10" language="java" name="controllers.Application" project="omniwin" 
+    file="/omniwin/app/controllers/Application.java" binary="false" label="application" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="254" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="86" x="119" y="210"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="logout():play.mvc.Result">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="dashboard():play.mvc.Result">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>
+</sequence-diagram>

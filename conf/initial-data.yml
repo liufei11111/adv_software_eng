@@ -1,0 +1,45 @@
+
+# Users
+
+admins:
+
+    - !!models.data.Admin
+        email:      sgf2110@columbia.edu
+        firstName:  Susan
+        lastName:   Fung
+        password:   abc
+        isEnabled:  1
+
+# Players
+
+players:  
+     
+    - !!models.data.Player
+        email:      player@columbia.edu
+        firstName:  Omni-Win
+        lastName:   Player
+        password:   abc
+        isEnabled:  1     
+        
+#Stocks
+stocks:
+
+    - !!models.data.Stock
+        companyName: Google
+        ticker: GOOG
+
+    - !!models.data.Stock
+        companyName: Apple
+        ticker: AAPL
+        
+    - !!models.data.Stock
+        companyName: Yahoo
+        ticker: YHOO
+        
+    - !!models.data.Stock
+        companyName: Bank of America
+        ticker: BAC
+        
+    - !!models.data.Stock
+        companyName: TD Bank
+        ticker: TD

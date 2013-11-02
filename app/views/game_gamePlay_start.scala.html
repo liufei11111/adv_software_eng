@@ -1,0 +1,51 @@
+<div class="gameScreen hide" id="startScreen" ng-controller="StartCtrl">
+    <div class="gameName">{{appName}}</div>
+    <div class="gameTitle">
+        {{gameState.title}}
+    </div>
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="gameDetails row-fluid">
+                <div class="openingBalance span6">
+                    <span>Opening Balance</span> ${{format(gameState.myAccount.openingBalance)}}
+                </div>
+
+                <div class="playersCount span6">
+                    <span>Players</span> {{count(gameState.players)}}/{{gameState.maxPlayers}}
+                </div>
+                <div class="clearfix"></div>
+                <div class="gameOwner">
+                    <span>Created by: </span> {{gameState.owner.firstName}} {{gameState.owner.lastName}}
+                </div>
+            </div>
+        </div>
+        <div class="span4 gamePlayers">
+            <div class="gameHeading" style="margin-right: -15px; margin-left: 0;">
+                Current Players
+            </div>
+            <div class="arrow arrow-left" style="margin-left: 20px;"></div>
+            <div class="clearfix"></div>
+            <ol>
+                <li ng-repeat="player in gameState.players|orderBy:'rank'">
+                    {{player.firstName}} {{player.lastName}}
+                </li>
+            </ol>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div ng-if="iAmOwner()" style="text-align: center;">
+        <div class="btn-group" >
+            <a class="btn btn-large btn-success" href="#" ng-click="start()" onclick="return false;">Start Game</a>
+            <a onclick="return false;" class="btn btn-large btn-warning" href="#" ng-click="cancel()">Cancel Game</a>
+        </div>
+    </div>
+
+    <div ng-if="!iAmOwner()" style="text-align: center;">
+        <div>
+            <a class="btn btn-large btn-warning" href="#" ng-click="leave()" onclick="return false;">Leave Game</a>
+        </div>
+    </div>
+
+
+</div>

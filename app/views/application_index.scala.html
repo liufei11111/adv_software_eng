@@ -1,0 +1,68 @@
+@(loginForm: Form[model.forms.LoginForm], registerForm : Form[model.forms.RegisterForm], formToDisplay : String=null)
+@import helper._
+@import helper.twitterBootstrap._
+
+
+@layout("Welcome to Omni Win"){
+<div class="jumbotron">
+    <h1>
+        Super awesome Stock Market Game!
+    </h1>
+    <p class="lead">
+        Welcome to Omni Win! A place where everyone can be a winner. @if(managers.UserManager.isLoggedIn()){Enter your dashboard to begin!}else{Sign up or Register to begin playing}.
+    </p>
+    @if(!managers.UserManager.isLoggedIn()){
+    
+    <a class="btn btn-large btn-success" href="#" id="signupBtn">Sign up today</a> 
+    <a class="btn btn-large btn-primary" href="#" id="loginBtn">Login to Play</a>
+    }else{
+    
+    @if(managers.UserManager.getCurrentLoggedInUser().isAdmin()){
+    <a class="btn btn-large btn-info" href="@routes.ManagementController.index()">Management Dashboard</a>
+    }else{
+    <a class="btn btn-large btn-info" href="@routes.Application.dashboard()">View Dashboard</a>
+    }
+    
+    }
+</div>
+@if(!managers.UserManager.isLoggedIn()){
+<a name="loginForm"></a>
+<form class='form  @if(formToDisplay == null || !formToDisplay.equals("login")){hide}' id="loginForm" action="@routes.LoginController.login()" method="post">
+    @if(loginForm.hasGlobalErrors()){
+    <div class="alert alert-error">
+        @loginForm.globalError().message()
+    </div>
+    }
+    @helper.inputText(loginForm("email"), '_label->"E-Mail", 'class->"input-block-level", '_showConstraints->false, 'required->"")
+    @helper.inputPassword(loginForm("password"), '_label->"Password", 'class->"input-block-level", '_showConstraints->false)
+
+    <button class="input-block-level btn btn-primary" type="submit">Login</button>
+</form>
+
+
+
+<a name="registerForm"></a>
+<form class='form @if(formToDisplay == null || !formToDisplay.equals("register")){hide}' id="registerForm" action="@routes.LoginController.register()" method="post">
+    @if(registerForm.hasGlobalErrors()){
+    <div class="alert alert-error">
+        @registerForm.globalError().message()
+    </div>
+    }
+    @helper.inputText(registerForm("firstName"), '_label->"First Name", 'class->"input-block-level", '_showConstraints->false, 'required->"")
+    @helper.inputText(registerForm("lastName"), '_label->"Last Name", 'class->"input-block-level", '_showConstraints->false, 'required->"")
+    @helper.inputText(registerForm("email"), '_label->"E-Mail", 'class->"input-block-level", '_showConstraints->false, 'required->"")
+
+    @helper.inputPassword(registerForm("password"), '_label->"Password", 'class->"input-block-level", '_showConstraints->false)
+
+    @helper.inputPassword(registerForm("password2"), '_label->"Re-type Password", 'class->"input-block-level", '_showConstraints->false)
+
+    <button class="input-block-level btn btn-primary" type="submit">Signup Now!</button>
+</form>
+<script>
+    $(applicationIndexAction);
+</script>
+}
+<hr>
+
+
+}

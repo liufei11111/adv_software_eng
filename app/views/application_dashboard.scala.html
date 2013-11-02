@@ -1,0 +1,129 @@
+@(gameList : List[models.data.Game], gameForm: Form[model.forms.GameForm])
+@import helper._
+@import helper.twitterBootstrap._
+@layout("Game DashBoard"){
+@defining(managers.UserManager.getCurrentLoggedInUser()){user=> 
+<div>
+    <p> Welcome, @user.getLastName() @user.getFirstName()!</p>
+</div>
+}
+
+
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#gameList">Joinable Games</a></li>
+    <li><a id="createGameBtn" href="#createGame">Create New Game</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="gameList">
+        @if(gameList.size() == 0){
+        <p> No Available Games Currently!</p>
+        }else{
+        <table class="table table-striped">
+          <tr>
+            <td>Game Title</td>
+            <td>Owner</td>
+            <td>Players</td>  
+            <td>Duration</td>
+            <td>Action</td>
+          </tr>
+          @defining(managers.UserManager.getCurrentLoggedInUser()){user=>
+          @for(game <- gameList){
+            <tr>
+              <td>@game.getGameTitle()</td>
+              <td>@game.getOwner().getFirstName() @game.getOwner().getLastName()</td>
+              <td>@game.getPlayers().size()/@game.getMaxPlayers()</td>
+              <td>@game.getGameLength()</td>
+              <td>
+                  <a class="btn btn-warning" href="@routes.GameController.playGame(game.getId())">
+                      @if(game.playerInGame(user)){
+                        Continue
+                      }else{
+                        Join!
+                      }
+                  
+                  </a>
+              
+              </td>
+               
+            </tr>
+          }
+          </table>
+        }
+        }
+    </div>
+
+    <div class="tab-pane" id="createGame">
+        <h2>Create new Game</h2>
+        <a name="gameForm"></a>
+        <form class='form' id="gameForm" action="@routes.GameController.create()" method="post">
+            @if(gameForm.hasGlobalErrors()){
+            <div class="alert alert-error">
+                @gameForm.globalError().message()
+            </div>
+            }
+
+            @helper.inputText(gameForm("gameTitle"), '_label->"Title", 'class->"input-block-level", '_showConstraints->false, 'required->"")   
+          
+            <div class="row-fluid">
+                <div class="span4">
+                    <p>Max Players:</p>
+                    <select name="maxPlayers" class="select input-small">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div class="span4">
+                    <p>Game length:</p>
+                    <select name="gameLength" class="select input-medium">
+                        <option value="7">1 week</option>
+                        <option value="14">2 weeks</option>
+                        <option value="21">3 weeks</option>
+                        <option value="30">1 month</option>
+                        <option value="60">2 month</option>
+                        <option value="90">3 month</option>
+                        <option value="365">1 year</option>
+                    </select>
+                </div>
+              
+                <div class="span4">
+                    <p>Opening Balance:</p>
+                    <select name="openBalance" class="select input-medium">
+                        <option value="500">$500</option>
+                        <option value="1000">$1000</option>
+                        <option value="2000">$2000</option>
+                        <option value="5000">$5000</option>
+                        <option value="10000">$10000</option>
+                        <option value="50000">$50000</option>
+                    </select>
+                </div>
+            </div>
+
+            <br>
+            <button class="input-block-level btn btn-primary" type="submit">Create</button>
+        </form>
+
+
+    </div>
+
+</div>
+
+<script>
+@if(gameForm.hasErrors()){
+    location.hash = "#createGame";
+}    
+    $('#myTab a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+    var openTab = location.hash;
+    if(openTab !== ""){
+        $("[href="+openTab+"]").tab('show');
+    }
+</script>
+}

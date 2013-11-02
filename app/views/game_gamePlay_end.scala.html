@@ -1,0 +1,31 @@
+<div class="gameScreen hide" id="endScreen">
+    <div>
+        <div class="gameTitle" style="margin-top: 10px;">
+            {{gameState.title}}
+        </div>
+    </div>
+    <div class="gameMessage alert alert-info">
+        Game Over
+    </div>
+
+    <div class="gameOverMessage">
+        <div>
+            <div class="gameHeading" style="margin-right: -15px;">
+                Leader Board
+            </div>
+            <div class="arrow arrow-left"></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row-fluid" ng-init="playersList=playersArray();">
+            <div class="span6 gamePlayer" ng-repeat="player in playersList |orderBy:'rank'">
+                <div ng-if="player.id==gameState.currentPlayer.id"  class="isMe">
+                    <span class="label label-info">{{pos(player.rank)}}</span> {{player.firstName}} {{player.lastName}}
+                </div>
+
+                <div ng-if="player.id!=gameState.currentPlayer.id">
+                    <span class="label label-info">{{pos(player.rank)}}</span> {{player.firstName}} {{player.lastName}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

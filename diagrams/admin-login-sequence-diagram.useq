@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.4" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="models.data.User" project="omniwin" file="/omniwin/app/models/data/User.java" 
+    binary="false" label="user1" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="28" y="0"/>    
+    <execution id="2">      
+      <position height="492" width="58" x="5" y="87"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="controllers.LoginController" project="omniwin" 
+    file="/omniwin/app/controllers/LoginController.java" binary="false" label="loginController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="218" y="0"/>    
+    <execution id="4">      
+      <position height="450" width="110" x="5" y="108"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="21" width="7" x="57" y="300"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="124" width="7" x="57" y="371"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="7" x="60" y="432"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="model.forms.LoginForm" project="omniwin" 
+    file="/omniwin/app/model/forms/LoginForm.java" binary="false" label="loginForm" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="197" y="0"/>    
+    <execution id="7">      
+      <position height="192" width="83" x="119" y="129"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="120" width="83" x="119" y="180"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="21" width="7" x="160" y="237"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="models.data.User" project="omniwin" file="/omniwin/app/models/data/User.java" 
+    binary="false" label="user" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="491" y="0"/>    
+    <execution id="22">      
+      <position height="78" width="58" x="206" y="201"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="82" width="58" x="206" y="392"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="managers.UserManager" project="omniwin" 
+    file="/omniwin/app/managers/UserManager.java" binary="false" label="userManager" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="325" y="0"/>    
+    <execution id="11">      
+      <position height="172" width="100" x="268" y="344"/>    
+    </execution>  
+  </object>  
+  <object id="29" language="java" name="controllers.ManagementController" project="omniwin" 
+    file="/omniwin/app/controllers/ManagementController.java" binary="false" label="managementController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="471" y="0"/>    
+    <execution id="13">      
+      <position height="21" width="153" x="372" y="516"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="login():play.mvc.Result">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="LoginForm()">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="session(java.lang.String,java.lang.String):void">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getCurrentLoggedInUser():models.data.User">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="redirect(play.mvc.Call):play.mvc.SimpleResult">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="15" operation="isAdmin():boolean">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="19" operation="validate():java.lang.String" x="218" y="137">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="authenticate(java.lang.String,java.lang.String):models.data.User">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="25">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="26">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="28">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>
+</sequence-diagram>

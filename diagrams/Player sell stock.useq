@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.4" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="models.data.Player" project="omniwin" file="/omniwin/app/models/data/Player.java" 
+    binary="false" label="player" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="134" y="0"/>    
+    <execution id="2">      
+      <position height="637" width="59" x="5" y="81"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="controllers.GameController" project="omniwin" 
+    file="/omniwin/app/controllers/GameController.java" binary="false" label="gameController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="187" y="0"/>    
+    <execution id="4">      
+      <position height="595" width="112" x="68" y="102"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="21" width="7" x="121" y="634"/>    
+    </execution>  
+  </object>  
+  <object id="9" language="java" name="models.data.GamePlayer" project="omniwin" 
+    file="/omniwin/app/models/data/GamePlayer.java" binary="false" label="gamePlayer" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="642" y="0"/>    
+    <execution id="7">      
+      <position height="553" width="92" x="651" y="123"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="21" width="92" x="651" y="605"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="21" width="7" x="227" y="171"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="21" width="7" x="227" y="241"/>    
+    </execution>  
+  </object>  
+  <object id="31" language="java" name="models.data.GameTxnHistory" project="omniwin" 
+    file="/omniwin/app/models/data/GameTxnHistory.java" binary="false" label="gameTxnHistory" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="994" y="0"/>    
+    <execution id="15">      
+      <position height="21" width="117" x="1181" y="296"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="117" x="1181" y="365"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="21" width="117" x="1181" y="406"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="21" width="117" x="1181" y="441"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="21" width="117" x="1181" y="481"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="117" x="1181" y="512"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="21" width="117" x="1181" y="547"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="sellStock(int):play.mvc.Result">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="sellStock(java.lang.String,int):java.lang.Integer">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="10">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="setGame(models.data.Game):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="setPlayer(models.data.GamePlayer):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="setRealDate(java.sql.Timestamp):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="setStockTicker(java.lang.String):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="setTransactionType(java.lang.String):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="setVirtualDate(java.sql.Timestamp):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="setVolume(java.lang.Integer):void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>
+</sequence-diagram>

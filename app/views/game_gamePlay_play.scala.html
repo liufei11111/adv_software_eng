@@ -1,0 +1,306 @@
+<div class="gameScreen hide" id="playScreen">
+    <div>
+        <div class="gameTitle" style="margin-top: 10px;">
+            {{gameState.title}}
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span9">
+            <div class="nowTrading"> 
+                <div>
+                    <div class="gameHeading" style="margin-right: -15px;">
+                        Now Trading
+                    </div>
+                    <div class="arrow arrow-left"></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="stockList row-fluid" title="Click on company name to see Price Trend">
+                    <div class="span5" ng-repeat="stock in stockList|orderBy: 'ticker'">
+                        <a href="#" onclick="return false;" title="View price history of {{stock.company}}" ng-click="showHistory(stock.ticker)">
+                            <span class="label label-info">
+                                {{stock.ticker}}
+                            </span> 
+                            {{stock.company}}
+                        </a>
+
+                        <a ng-click="buy(stock)" class="btn btn-mini btn-success" onclick="return false;" ng-if="stock.price>0">
+                            buy at ${{format(stock.price)}}
+                        </a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span7">
+                    <div>
+                        <div class="gameHeading">
+                            Portfolio
+                        </div>
+                        <div class="arrow arrow-left"></div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="stockList row-fluid" ng-if="gameState.myPortfolio.length > 0" style="max-width: 360px;">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Ticker</td>
+                                <td>Qty</td>
+                                <td>Value</td>
+                                <td></td>
+                            </tr>
+                            <tr ng-repeat="portfolioStock in gameState.myPortfolio">
+                                <td>
+                                    <a href="#" onclick="return false;" title="View price history of {{stock.company}}" ng-click="showHistory(portfolioStock.ticker)">
+                                        <span class="label label-info">
+                                            {{portfolioStock.ticker}}
+                                        </span> 
+                                    </a>
+                                </td>
+
+                                <td>
+                                    {{portfolioStock.quantity}}
+                                </td>
+                                <td>
+                                    ${{format(portfolioStock.quantity * portfolioStock.currentPrice)}}
+                                </td>
+                                <td>
+                                    <a ng-click="sell(portfolioStock)" class="btn btn-mini btn-success" onclick="return false;" ng-if="portfolioStock.currentPrice>0">
+                                        sell at ${{format(portfolioStock.currentPrice)}}
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                    <div ng-if="gameState.myPortfolio.length < 1" class="alert alert-info">
+                        You stock portfolio is empty.
+                    </div>
+                </div>
+                <div class="span5">
+                    <div>
+                        <div class="gameHeading" style="margin-left: 0;">
+                            My Account
+                        </div>
+                        <div class="arrow arrow-left" style="margin-left: 10px;"s></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="alert alert-info">
+                        <div>
+                            <strong>Opening Bal.</strong> $ {{format(gameState.myAccount.openingBalance)}}
+                        </div>
+
+                        <div>
+                            <strong>Current Bal.</strong> $ {{format(gameState.myAccount.currentBalance)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span3 gameInfo">
+            <div>
+                <div class="gameHeading">
+                    Game Status
+                </div>
+                <div class="arrow arrow-left" style="margin-left: 10px;"s></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="tradingInfo" style="padding-left: 15px;">
+                <span>Trading Day </span> {{gameState.currentGameDay}} of {{gameState.gameLength}}
+            </div>
+
+            <div>
+                <div class="gameHeading">
+                    Net Worth
+                </div>
+                <div class="arrow arrow-left" style="margin-left: 10px;"s></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="netWorth">
+                ${{format(computeNetWorth())}}
+            </div>
+
+            <div>
+                <div class="gameHeading">
+                    Leader Board
+                </div>
+                <div class="arrow arrow-left" style="margin-left: 10px;"s></div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div style="overflow: auto; height: 120px;">
+                <div ng-repeat="player in playersArray()| orderBy:'rank'">
+                    <span class="label label-info">{{pos(player.rank)}}</span> {{player.firstName}} {{player.lastName}}
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="modal hide" id="chartModal" style="width:720px;">
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal">&times;</a>
+            <h3>{{stockHistoryTitle}}</h3>
+            <div class="alert alert-info">
+                This chart shows price trends up to yesterday, the dates are not real.
+            </div>
+        </div>
+        <div class="modal-body">
+            <div id="chartContainer" style="width: 690px;"></div>
+        </div>
+    </div>
+    <div class="modal hide" id="buyStockModal">
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal">&times;</a>
+            <h3>Buy {{selectedStock.companyName}} Stock</h3>
+        </div>
+        <div class="modal-body">
+            <form ng-submit="buyStock()" class="form-horizontal" style="font-family: Verdana, Calibri, sans-serif">
+                <div class="control-group">
+                    <label class="control-label">Ticker</label>
+                    <div class="controls">
+                        <span class="label label-info">{{selectedStock.ticker}}</span>
+                        <input type="hidden" name="ticker" ng-model="selectedStock.ticker" value="{{selectedStock.ticker}}"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Company</label>
+                    <div class="controls">
+                        {{selectedStock.company}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Current Price:</label>
+                    <div class="controls">
+                        ${{format(selectedStock.price)}}
+                        <input type="hidden" ng-model="selectedStock.price" name="price" value="{{selectedStock.price}}"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Quantity:</label>
+                    <div class="controls">
+                        <input type="number" pattern="^\d+$" required="" ng-model="selectedStock.quantity" name="quantity" class="input-small" min="0"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Total Amount
+                    </label>
+                    <div class="controls">
+                        ${{format(selectedStock.quantity * selectedStock.price)}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Current Balance
+                    </label>
+                    <div class="controls">
+                        ${{format(gameState.myAccount.currentBalance)}}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">
+                        After Purchase
+                    </label>
+                    <div class="controls">
+                        ${{format(gameState.myAccount.currentBalance - selectedStock.quantity * selectedStock.price)}}
+                    </div>
+                </div>
+
+
+                <div ng-if="selectedStock.quantity > 0 && (gameState.myAccount.currentBalance - selectedStock.quantity * selectedStock.price) >= 0">
+                    <button type="submit" class="btn btn-success">Buy Stock</button>
+                </div>
+
+                <div ng-if="selectedStock.quantity < 1 || (gameState.myAccount.currentBalance - selectedStock.quantity * selectedStock.price) < 0">
+                    <button type="submit" class="btn btn-success" disabled="">Buy Stock</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="modal hide" id="sellStockModal">
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal">&times;</a>
+            <h3>Sell {{stockToSell.companyName}} Stock</h3>
+        </div>
+
+        <div class="modal-body">
+            <form ng-submit="sellStock()" class="form-horizontal" style="font-family: Verdana, Calibri, sans-serif">
+                <div class="control-group">
+                    <label class="control-label">Ticker</label>
+                    <div class="controls">
+                        <span class="label label-info">{{stockToSell.ticker}}</span>
+                        <input type="hidden" name="ticker" ng-model="stockToSell.ticker" value="{{stockToSell.ticker}}"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Company</label>
+                    <div class="controls">
+                        {{stockToSell.company}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Current Price:</label>
+                    <div class="controls">
+                        ${{format(stockToSell.currentPrice)}}
+                        <input type="hidden" ng-model="stockToSell.currentPrice" name="price" value="{{stockToSell.currentPrice}}"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Quantity:</label>
+                    <div class="controls">
+                        <input type="number" pattern="^\d+$" required="" ng-model="stockToSell.quantityToSell" name="quantity" class="input-small" min="1" max="{{stockToSell.quantity}}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Total Amount
+                    </label>
+                    <div class="controls">
+                        ${{format(stockToSell.quantityToSell * stockToSell.currentPrice)}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Current Balance
+                    </label>
+                    <div class="controls">
+                        ${{format(gameState.myAccount.currentBalance)}}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">
+                        After Sale
+                    </label>
+                    <div class="controls">
+                        ${{format(gameState.myAccount.currentBalance + stockToSell.quantityToSell * stockToSell.currentPrice)}}
+                    </div>
+                </div>
+
+
+                <div ng-if="stockToSell.quantityToSell > 0 && stockToSell.quantityToSell <= stockToSell.quantity">
+                    <button type="submit" class="btn btn-success">Sell Stock</button>
+                </div>
+
+                <div ng-if="stockToSell.quantityToSell < 1 || stockToSell.quantityToSell > stockToSell.quantity">
+                    <button type="submit" class="btn btn-success" disabled="">Sell Stock</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

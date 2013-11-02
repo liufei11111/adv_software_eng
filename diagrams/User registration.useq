@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.4" icons="true">  
+  <object id="1" language="java" name="models.data.User" project="omniwin" file="/omniwin/app/models/data/User.java" 
+    binary="false" label="user" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="57" y="0"/>    
+    <execution id="2">      
+      <position height="548" width="58" x="5" y="130"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="controllers.LoginController" project="omniwin" 
+    file="/omniwin/app/controllers/LoginController.java" binary="false" label="loginController" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="154" y="0"/>    
+    <execution id="4">      
+      <position height="506" width="110" x="67" y="151"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="21" width="7" x="119" y="590"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="model.forms.RegisterForm" project="omniwin" 
+    file="/omniwin/app/model/forms/RegisterForm.java" binary="false" label="registerForm" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="303" y="0"/>    
+    <execution id="7">      
+      <position height="412" width="100" x="181" y="172"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="301" width="100" x="181" y="262"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="21" width="7" x="231" y="305"/>    
+    </execution>  
+  </object>  
+  <object id="32" language="java" name="models.data.User" project="omniwin" file="/omniwin/app/models/data/User.java" 
+    binary="false" label="user1" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="374" y="0"/>    
+    <execution id="16">      
+      <position height="64" width="58" x="285" y="283"/>    
+    </execution>  
+  </object>  
+  <object id="34" language="java" name="models.data.Player" project="omniwin" 
+    file="/omniwin/app/models/data/Player.java" binary="false" label="player" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="449" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="59" x="347" y="333"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="59" x="347" y="362"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="21" width="59" x="347" y="394"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="21" width="59" x="347" y="423"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="21" width="59" x="347" y="454"/>    
+    </execution>    
+    <execution id="28">      
+      <position height="21" width="59" x="347" y="489"/>    
+    </execution>    
+    <execution id="30">      
+      <position height="21" width="59" x="347" y="521"/>    
+    </execution>  
+  </object>  
+  <object id="35" language="java" name="controllers.Application" project="omniwin" 
+    file="/omniwin/app/controllers/Application.java" binary="false" label="application" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="461" y="0"/>    
+    <execution id="11">      
+      <position height="21" width="86" x="410" y="615"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="register():play.mvc.Result">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="RegisterForm()">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="session(java.lang.String,java.lang.String):void">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="dashboard():play.mvc.Result">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="13" operation="validate():java.lang.String">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="findByEmail(java.lang.String):models.data.User">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="Player()">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="setFirstName(java.lang.String):void">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="setLastName(java.lang.String):void">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="setEmail(java.lang.String):void">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="setPassword(java.lang.String):void">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="27" operation="setIsEnabled(java.lang.Integer):void">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="28"/>  
+  </message>  
+  <message id="29" operation="save():void">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="33">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>
+</sequence-diagram>

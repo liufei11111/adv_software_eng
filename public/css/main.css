@@ -1,0 +1,241 @@
+@import url(http://fonts.googleapis.com/css?family=Flamenco);
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+    margin: 0 auto;
+    max-width: 900px;
+}
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    margin: 60px 0;
+    text-align: center;
+}
+.jumbotron h1 {
+    font-size: 72px;
+    line-height: 1;
+}
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 60px 0;
+}
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+#loginForm, #registerForm {
+    width: 300px; 
+    padding: 10px;
+    border-radius: 5px;
+    margin: 4px auto;
+}
+
+.form {
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form .form-heading,
+.form .checkbox {
+    margin-bottom: 10px;
+}
+.form input[type="text"],
+.form input[type="password"],
+.form select,
+.form button
+{
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+.error .help-inline {color: #a00;}
+.error .input-block-level {border-color: #e9322d;-webkit-box-shadow: 0 0 6px #f8b9b7;-moz-box-shadow: 0 0 6px #f8b9b7;box-shadow: 0 0 6px #f8b9b7;}
+
+
+.tab-pane {
+    min-height:500px; 
+}
+
+.gamePanel{
+    background: rgb(179,220,237); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IzZGNlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI5YjhlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiY2UwZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(179,220,237,1)), color-stop(50%,rgba(41,184,229,1)), color-stop(100%,rgba(188,224,238,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=0 ); /* IE6-8 */
+
+
+}
+
+
+#gamePanel {
+    padding: 10px; 
+    border-radius: 5px;
+    min-height: 500px;
+    margin-top: 20px;
+    font-family: 'Flamenco', cursive;
+}
+
+#gamePanel .title{
+    font-size: 25px;
+    text-align: center;
+}
+
+#gamePanel .gameTitle {
+    font-family: 'Fondamento', cursive;
+    margin: 30px -10px 10px;
+    background: #fff;
+    opacity: 0.9;
+    padding: 10px 5px;
+    font-size: 32px;
+    text-align: center;
+    color: #0088cc;
+}
+
+#gamePanel .gamePlayers {
+    margin-top: 20px;
+}
+
+#gamePanel .gamePlayers ol{
+    margin-left: 15px;
+}
+#gamePanel .gameName {
+    text-align: center;
+    font-size: 26px;
+}
+
+#gamePanel .gameDetails {
+    font-size: 16px;
+    background: whitesmoke;
+    opacity: 0.8;
+    margin: 20px -10px;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+#gamePanel .gamePlayers h2 {
+    font-size: 18px;
+    margin: 0;
+    padding: 5px;
+    line-height: normal;
+    color: #333;
+    border-bottom: solid 1px #445868;
+}
+
+#gamePanel .gameDetails span {
+    font-weight: bold;
+}
+
+#gamePanel .gameMessage {
+    text-align: center;
+    font-size: 30px;
+}
+
+#gamePanel .gameInfo .gameHeading {
+    margin: 10px -11px 10px 3px;;
+}
+#gamePanel .gameHeading {
+    font-family: 'Fondamento', cursive;
+    margin: 10px 0 10px -10px;
+    background: #fff;
+    opacity: 0.9;
+    padding: 5px;
+    font-size: 16px;
+    text-align: left;
+    color: #0088cc;
+    color: #333;
+}
+
+#gamePanel .arrow {
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    border-color: rgba(255, 102, 0, 0);
+    border-top-color: #fff;
+    border-width: 10px;
+    margin-top: -10px;
+    opacity: 0.9;
+}
+
+#gamePanel .stockList {
+    background: whitesmoke;
+    height: 140px;
+    margin-left: -10px;
+    border-radius: 0 5px 5px 0;
+    margin-right: 20px;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    overflow: auto;
+    border-width: 5px 5px 5px 0;
+    border-style: solid;
+    border-color: #0088cc;
+    opacity: 0.8;
+}
+
+#gamePanel .stockList .btn{
+    float: right;
+}
+
+#gamePanel .stockList.row-fluid [class*="span"]:first-child{
+    margin-left: 17px;
+}
+
+#gamePanel #chartDisplayOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.8;
+    left: 0;
+    top: 0;
+}
+
+#gamePanel .netWorth, #gamePanel .tradingInfo {
+    padding: 15px; 
+    font-size: 18px; 
+    color: #333; 
+    font-weight: bold; 
+    background: #fff; 
+    border-radius: 5px 0 0 5px;
+    margin-right: -11px;
+}
+
+#gamePanel .gamePlayer div {
+    font-size: 17px;
+    background: #fff;
+    opacity: 0.9;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+}
+
+#gamePanel .gamePlayer div.isMe {
+    border: solid 3px #445868;
+}

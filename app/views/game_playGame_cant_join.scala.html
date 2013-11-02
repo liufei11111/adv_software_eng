@@ -1,0 +1,14 @@
+@(game: models.data.Game, isJoinError: Boolean)
+@layout("Game Error"){
+<h2>Game Error</h2>
+
+@if(isJoinError){
+<div class="alert alert-warning">
+    It seems this game has already reached its maximum number of players!
+</div>
+}else{
+<div class="alert alert-warning">
+    You can no longer join this game because <strong>it has already @if(game.isStarted()){started}else{ended}!</strong>
+</div>
+}
+}

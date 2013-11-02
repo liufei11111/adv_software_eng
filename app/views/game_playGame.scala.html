@@ -1,0 +1,66 @@
+@(game : models.data.Game, gameState : com.fasterxml.jackson.databind.node.ObjectNode, stockList : com.fasterxml.jackson.databind.node.ArrayNode)
+@layout("Game Play ("+game.getGameTitle() +")"){
+<script>
+    var gameState = @Html(gameState.toString());
+    var gameId = @game.getId();
+    var availableStocks = @Html(stockList.toString());
+    var appName = '@play.Play.application().configuration().getString("application.name")';
+    var gameRoutes = {
+        refresh: '@routes.GameController.gameStatus(game.getId())'
+        , leave: '@routes.GameController.leave(game.getId())'
+        , start: '@routes.GameController.start(game.getId())'
+        , cancel: '@routes.GameController.cancel(game.getId())'
+        , priceList: '@routes.GameController.stockPrice(game.getId(), "_TICKER_")'
+        , stockList: '@routes.GameController.stockList(game.getId())'
+        , buyStock: '@routes.GameController.buyStock(game.getId())'
+        , sellStock: '@routes.GameController.sellStock(game.getId())'
+    };
+</script>
+<link href='@routes.Assets.at("plugins/loading/jquery.loadmask.css")' rel="stylesheet">
+<link href='@routes.Assets.at("plugins/jquery.toast/jquery.toast.css")' rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Fondamento' rel='stylesheet' type='text/css'>
+<script src='@routes.Assets.at("plugins/jquery.toast/jquery.toast.js")'></script>
+<script src='@routes.Assets.at("plugins/loading/jquery.loadmask.min.js")'></script>
+<script src='@routes.Assets.at("plugins/highstock/highstock.js")'></script>
+<script src='@routes.Assets.at("js/angular.min.js")'></script>
+<script src='@routes.Assets.at("js/angular-route.min.js")'></script>
+<script src='@routes.Assets.at("js/gameApp.js")'></script>
+
+<h2 style="text-align: center;">Game Play</h2>
+@defining(Controller.flash("game_created")){successMsg=>
+@if(successMsg != null){
+<div class="alert alert-success">
+    @successMsg
+</div>
+}
+}
+
+<div>
+    <div id="sharePanel" class="hide">
+        <!-- AddThis Button BEGIN -->
+        <div style="text-align: center; font-weight: bold;">
+            Share Game
+        </div>
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="text-align: center;">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5271af4051bdd17d"></script>
+        <!-- AddThis Button END -->
+
+    </div>
+
+    <div class="gamePanel" id="gamePanel" ng-app='gameApp'>
+        <div ng-view class="gameScreen"></div>
+    </div>
+</div>
+<br/>
+@game_gamePlay_end()
+@game_gamePlay_cancel()
+@game_gamePlay_leave()
+@game_gamePlay_play()
+@game_gamePlay_start()
+}

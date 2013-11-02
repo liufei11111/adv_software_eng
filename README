@@ -1,0 +1,12 @@
+This is your new Play application
+=====================================
+
+This file will be packaged with your application, when using `play dist`.
+
+
+Execute the following Query before running for the first time
+
+-- START Query
+CREATE DATABASE `omni_win`CHARACTER SET utf8 COLLATE utf8_general_ci;
+-- End Query
+

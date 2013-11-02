@@ -1,0 +1,27 @@
+2013-10-31 17:49:16,926 - [INFO] - from play in pool-4-thread-2 
+Listening for HTTP on /0:0:0:0:0:0:0:0%0:9000
+
+2013-10-31 17:49:29,773 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/omni_win?characterEncoding=utf8
+
+2013-10-31 17:49:30,788 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-10-31 17:50:56,409 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+joining game
+
+2013-10-31 17:50:56,419 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+Successfully joined game.
+
+2013-10-31 17:50:57,145 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
+joining game
+
+2013-10-31 17:50:57,154 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
+Successfully joined game.
+
+2013-10-31 17:51:01,347 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+joining game
+
+2013-10-31 17:51:01,356 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+Successfully joined game.
+

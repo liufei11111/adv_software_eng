@@ -1,0 +1,150 @@
+@(stockList : List[models.data.Stock], message : String, tabToDisplay : String=null)
+@import helper._
+@import helper.twitterBootstrap._
+
+
+@layout("Management DashBoard"){
+
+
+@defining(managers.UserManager.getCurrentLoggedInUser()){user=> 
+<div>
+    <p> Welcome, Admin @user.getLastName() @user.getFirstName()!</p>
+</div>
+}
+
+
+
+  <div class="alert fade in">
+      <button type="button" class="close" data_dismiss="alert">x</button>
+      <strong id="message">@message</strong>
+  </div>
+
+
+<ul class="nav nav-tabs" id="adminTab">
+    <li class=''><a href="#stockTab">Modify Stock Pool</a></li>
+    <li class=''><a href="#userTab">Enable/Disable User</a></li>
+</ul>
+
+<div class="tab-content">
+      <div class='tab-pane' id="stockTab">
+      <div>
+          <form class="form" id="addStockForm" action="@routes.ManagementController.addStock()" method="post">
+          <fieldset>
+          <legend>Add a new Stock</legend>
+          <input type="text" name="companyName" placeholder="Type Company Name">
+          <input type="text" name="ticker" placeholder="Type a ticker…">
+          <span class="help-block">Should the stock be automatically enabled?</span>
+          <label class="checkbox">
+          <input type="checkbox" name="isEnabled" value=1> Enable
+          </label>
+          <button type="submit" class="btn">Add it</button>
+          <legend></legend>
+          </fieldset>
+          </form>
+      </div>
+      
+      <table class="table table-striped">
+        <tr>
+            <td>Company Name</td>
+            <td>Ticker</td>
+            <td>isEnabled</td>
+            <td>Enable/Disable</td>  
+            <td>Delete</td>
+          </tr>
+      @for(stock <- stockList){
+           <tr>
+            <td>@stock.getCompanyName()</td>
+            <td>@stock.getTicker()</td>
+            <td>@stock.getIsEnabled()</td>
+            <td>
+              <form class='form' id="toggleStockForm" action="@routes.ManagementController.toggleStock()" method="post">
+                <input type="hidden" readonly="" name="ticker" value=@stock.getTicker() class="input-block-level">
+                 <input type="hidden" readonly="" name="companyName" value=@stock.getCompanyName() class="input-block-level">
+                <input type="hidden" readonly="" name="isEnabled" value=@stock.getIsEnabled() class="input-block-level">
+               <button class="input-block-level btn btn-primary" type="submit">
+                 @if(stock.getIsEnabled() == 1){
+                    Disable
+                 }else{
+                    Enable
+                 }
+                </button>
+              </form>
+            </td>
+             <td>
+                <form class='form' id="deleteStockForm" action="@routes.ManagementController.deleteStock()" method="post">
+                <input type="hidden" readonly="" name="ticker" value=@stock.getTicker() class="input-block-level">
+                <input type="hidden" readonly="" name="companyName" value=@stock.getCompanyName() class="input-block-level">
+                <input type="hidden" readonly="" name="isEnabled" value=@stock.getIsEnabled() class="input-block-level">
+               <button class="input-block-level btn btn-primary" type="submit">
+                 Delete
+                </button>
+              </form>
+            </td>
+           </tr>
+        
+                  
+      }
+      </table>
+    </div>
+        
+
+    <div class='tab-pane' id="userTab">
+         <table class="table table-striped">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Status</td>  
+            <td>Enable/Disable</td>
+          </tr>
+      @for(account <- managers.UserManager.getUserList()){
+           <tr>
+            <td>@account.getFirstName()</td>
+            <td>@account.getLastName()</td>
+            <td>@account.getEmail()</td>
+            <td>@account.getIsEnabled()</td>
+            
+            <td>
+              <form class='form' id="toggleUserForm" action="@routes.ManagementController.playerToggle()" method="post">
+                <input type="hidden" readonly="" name="email" value=@account.getEmail() class="input-block-level">
+                
+               <button class="input-block-level btn btn-primary" type="submit">
+                 @if(account.getIsEnabled() == 1){
+                    Disable
+                 }else{
+                    Enable
+                 }
+                </button>
+              </form>
+            </td>
+           </tr>
+        
+                  
+      }
+      </table>
+      
+    </div>
+
+</div>
+
+<script>
+
+    $('#adminTab a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+  
+    $('#adminTab a[href="#@tabToDisplay"]').tab('show'); // Select tab by name
+
+    
+      if ($("#message").text() == ""){
+        $(".alert").alert('close'); 
+      }
+      
+  
+    $( ".close" ).click(function() {
+     $( ".alert").alert('close');
+    });
+  
+</script>
+}

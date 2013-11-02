@@ -1,0 +1,13 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/target/scala-2.10/resource_managed/main/public/stylesheets/login.css,/Users/feiliu/git/omniwin/target/scala-2.10/classes/public/stylesheets/login.css)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/target/scala-2.10/resource_managed/main/public/stylesheets/login.min.css,/Users/feiliu/git/omniwin/target/scala-2.10/classes/public/stylesheets/login.min.css)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/target/scala-2.10/resource_managed/main/public/stylesheets/main.css,/Users/feiliu/git/omniwin/target/scala-2.10/classes/public/stylesheets/main.css)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/target/scala-2.10/resource_managed/main/public/stylesheets/main.min.css,/Users/feiliu/git/omniwin/target/scala-2.10/classes/public/stylesheets/main.min.css)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/target/scala-2.10/resource_managed/main/public/javascripts/main.js,/Users/feiliu/git/omniwin/target/scala-2.10/classes/public/javascripts/main.js)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/target/scala-2.10/resource_managed/main/public/javascripts/main.min.js,/Users/feiliu/git/omniwin/target/scala-2.10/classes/public/javascripts/main.min.js)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/conf/application.conf,/Users/feiliu/git/omniwin/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/conf/evolutions,/Users/feiliu/git/omniwin/target/scala-2.10/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/conf/initial-data.yml,/Users/feiliu/git/omniwin/target/scala-2.10/classes/initial-data.yml)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/conf/routes,/Users/feiliu/git/omniwin/target/scala-2.10/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/conf/evolutions/default,/Users/feiliu/git/omniwin/target/scala-2.10/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/Users/feiliu/git/omniwin/conf/evolutions/default/1.sql,/Users/feiliu/git/omniwin/target/scala-2.10/classes/evolutions/default/1.sql)[0m
